@@ -8,7 +8,7 @@ technical context. This README covers local setup only.
 
 1. `npm install`
 2. Create a Supabase project, then copy `.env.local.example` to `.env.local`
-   and fill in the three Supabase values from the project dashboard
+   and fill in the three Supabase values (the new publishable/secret keys, not legacy anon/service_role) from the project dashboard
    (Settings → API).
 3. Link the CLI and push the schema:
    ```
