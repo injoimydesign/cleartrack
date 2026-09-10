@@ -71,6 +71,34 @@ export async function createWriterInline(name: string) {
   return data;
 }
 
+// Used by the "New writer" modal (opened from the Song form's writer row
+// when a search finds no match — PRD §3 point 3). Takes the full field set
+// rather than just a name, and returns the created row instead of
+// redirecting, since the caller stays on the song form.
+export async function createWriterFull(input: {
+  name: string;
+  publisherId: string | null;
+  proIds: string[];
+  publisherProIds: string[];
+}) {
+  const name = input.name.trim();
+  if (!name) throw new Error("Name is required.");
+
+  const supabase = createAdminClient();
+  const { data, error } = await supabase
+    .from("writers")
+    .insert({ name, publisher_id: input.publisherId })
+    .select("id, name")
+    .single();
+  if (error) throw new Error(error.message);
+
+  await syncProLinks(data.id, "writer_pros", input.proIds);
+  await syncProLinks(data.id, "writer_publisher_pros", input.publisherProIds);
+
+  revalidatePath(BASE_PATH);
+  return data;
+}
+
 export async function updateWriter(id: string, formData: FormData) {
   const name = (formData.get("name") ?? "").toString().trim();
   if (!name) throw new Error("Name is required.");
