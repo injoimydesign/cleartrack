@@ -58,6 +58,7 @@ export function RowPicker({
   options,
   withSplit,
   createAction,
+  onRequestCreate,
   addLabel,
   placeholder,
   rowInfo,
@@ -67,6 +68,8 @@ export function RowPicker({
   options: SearchableOption[];
   withSplit: boolean;
   createAction?: (name: string) => Promise<{ id: string; name: string }>;
+  /** Escape hatch for richer creation (e.g. a modal) — see SearchableSelect. */
+  onRequestCreate?: (name: string, rowIndex: number) => void;
   addLabel: string;
   placeholder: string;
   /** Optional extra line rendered under a row once it has a value selected
@@ -103,6 +106,9 @@ export function RowPicker({
                 onChange={(id) => updateRow(index, { id })}
                 placeholder={placeholder}
                 createAction={createAction}
+                onRequestCreate={
+                  onRequestCreate ? (name) => onRequestCreate(name, index) : undefined
+                }
               />
             </div>
             {withSplit && (

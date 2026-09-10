@@ -6,11 +6,12 @@ import { CoverArt } from "@/components/admin/cover-art";
 import { SearchableSelect, type SearchableOption } from "@/components/admin/searchable-select";
 import { RowPicker, SplitTotalBadge, type PickerRow } from "@/components/admin/row-picker";
 import { createArtistInline } from "@/app/(admin)/artists/actions";
-import { createWriterInline } from "@/app/(admin)/writers/actions";
 import { createLabelInline } from "@/app/(admin)/labels/actions";
 import { createPublisherInline } from "@/app/(admin)/publishers/actions";
 import { fetchSpotifyCoverArt, fetchSpotifyPublisher } from "@/app/(admin)/songs/spotify-actions";
 import { formatWriterInfoLine, type WriterMeta } from "@/lib/format-writer";
+import { NewWriterDialog } from "@/components/admin/new-writer-dialog";
+import type { SelectOption } from "@/components/admin/multi-select-dropdown";
 
 const fieldClasses =
   "w-full rounded-[var(--radius-control)] border border-console-border bg-console-bg px-3 py-2 text-sm text-console-text placeholder:text-console-text-muted focus:border-console-accent";
@@ -45,6 +46,7 @@ export function SongForm({
     writers: WriterMeta[];
     labels: SearchableOption[];
     publishers: SearchableOption[];
+    pros: SelectOption[];
   };
   action: (formData: FormData) => void;
   submitLabel: string;
@@ -56,6 +58,14 @@ export function SongForm({
   const [publisherId, setPublisherId] = useState<string | null>(
     defaultValues?.publisher?.id ?? null,
   );
+
+  // Local copy so a writer created via the "New writer" modal shows up
+  // immediately (options + info line) without a page refresh.
+  const [writerMetaList, setWriterMetaList] = useState<WriterMeta[]>(referenceData.writers);
+  const [pendingWriterCreate, setPendingWriterCreate] = useState<{
+    name: string;
+    rowIndex: number;
+  } | null>(null);
 
   const [artistRows, setArtistRows] = useState<PickerRow[]>(
     defaultValues?.artists.length
@@ -108,7 +118,7 @@ export function SongForm({
     });
   }
 
-  const writerOptions: SearchableOption[] = referenceData.writers.map((w) => ({
+  const writerOptions: SearchableOption[] = writerMetaList.map((w) => ({
     id: w.id,
     name: w.name,
   }));
@@ -231,11 +241,11 @@ export function SongForm({
             onChange={setWriterRows}
             options={writerOptions}
             withSplit
-            createAction={createWriterInline}
+            onRequestCreate={(name, rowIndex) => setPendingWriterCreate({ name, rowIndex })}
             addLabel="Add writer"
             placeholder="Select writer…"
             rowInfo={(id) => {
-              const writer = referenceData.writers.find((w) => w.id === id);
+              const writer = writerMetaList.find((w) => w.id === id);
               return writer ? formatWriterInfoLine(writer) : null;
             }}
           />
@@ -302,6 +312,33 @@ export function SongForm({
           {submitLabel}
         </button>
       </div>
+
+      {pendingWriterCreate && (
+        <NewWriterDialog
+          open
+          initialName={pendingWriterCreate.name}
+          publishers={publisherOptions}
+          pros={referenceData.pros}
+          onOpenChange={(nextOpen) => {
+            if (!nextOpen) setPendingWriterCreate(null);
+          }}
+          onPublisherCreated={(publisher) =>
+            setPublisherOptions((prev) =>
+              prev.some((p) => p.id === publisher.id) ? prev : [...prev, publisher],
+            )
+          }
+          onCreated={(writer) => {
+            setWriterMetaList((prev) => [...prev, writer]);
+            setWriterRows((rows) =>
+              rows.map((r, i) =>
+                i === pendingWriterCreate.rowIndex ? { ...r, id: writer.id } : r,
+              ),
+            );
+            toast.success(`Added writer: ${writer.name}`);
+            setPendingWriterCreate(null);
+          }}
+        />
+      )}
     </form>
   );
 }

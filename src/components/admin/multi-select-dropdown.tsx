@@ -48,12 +48,16 @@ export function MultiSelectDropdown({
   options,
   initialSelectedIds,
   hiddenFieldName,
+  onSelectedChange,
   placeholder = "Select…",
   searchPlaceholder = "Search…",
 }: {
   options: SelectOption[];
   initialSelectedIds: string[];
-  hiddenFieldName: string;
+  /** Provide when used inside a <form> — renders a hidden JSON input. */
+  hiddenFieldName?: string;
+  /** Provide for controlled, non-form usage (e.g. inside a modal). */
+  onSelectedChange?: (ids: string[]) => void;
   placeholder?: string;
   searchPlaceholder?: string;
 }) {
@@ -75,6 +79,7 @@ export function MultiSelectDropdown({
       } else {
         next.add(id);
       }
+      onSelectedChange?.(Array.from(next));
       return next;
     });
   }
@@ -142,11 +147,13 @@ export function MultiSelectDropdown({
         </PopoverPrimitive.Content>
       </PopoverPrimitive.Portal>
 
-      <input
-        type="hidden"
-        name={hiddenFieldName}
-        value={JSON.stringify(Array.from(selected))}
-      />
+      {hiddenFieldName && (
+        <input
+          type="hidden"
+          name={hiddenFieldName}
+          value={JSON.stringify(Array.from(selected))}
+        />
+      )}
     </PopoverPrimitive.Root>
   );
 }

@@ -16,20 +16,26 @@ type WriterRow = {
 
 export default async function NewSongPage() {
   const supabase = createAdminClient();
-  const [{ data: artists }, { data: writerRows }, { data: labels }, { data: publishers }] =
-    await Promise.all([
-      supabase.from("artists").select("id, name").order("name"),
-      supabase
-        .from("writers")
-        .select(
-          `id, name, publisher:publisher_id(name),
-           writer_pros(pros(name)), writer_publisher_pros(pros(name))`,
-        )
-        .order("name")
-        .returns<WriterRow[]>(),
-      supabase.from("labels").select("id, name").order("name"),
-      supabase.from("publishers").select("id, name").order("name"),
-    ]);
+  const [
+    { data: artists },
+    { data: writerRows },
+    { data: labels },
+    { data: publishers },
+    { data: pros },
+  ] = await Promise.all([
+    supabase.from("artists").select("id, name").order("name"),
+    supabase
+      .from("writers")
+      .select(
+        `id, name, publisher:publisher_id(name),
+         writer_pros(pros(name)), writer_publisher_pros(pros(name))`,
+      )
+      .order("name")
+      .returns<WriterRow[]>(),
+    supabase.from("labels").select("id, name").order("name"),
+    supabase.from("publishers").select("id, name").order("name"),
+    supabase.from("pros").select("id, name").order("name"),
+  ]);
 
   const writers: WriterMeta[] = (writerRows ?? []).map((w) => ({
     id: w.id,
@@ -56,6 +62,7 @@ export default async function NewSongPage() {
           writers,
           labels: labels ?? [],
           publishers: publishers ?? [],
+          pros: pros ?? [],
         }}
         action={createSong}
         submitLabel="Create song"

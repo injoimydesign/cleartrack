@@ -49,6 +49,7 @@ export default async function SongDetailPage({
     { data: writerRows },
     { data: labels },
     { data: publishers },
+    { data: pros },
   ] = await Promise.all([
     supabase
       .from("songs")
@@ -73,6 +74,7 @@ export default async function SongDetailPage({
       .returns<WriterRow[]>(),
     supabase.from("labels").select("id, name").order("name"),
     supabase.from("publishers").select("id, name").order("name"),
+    supabase.from("pros").select("id, name").order("name"),
   ]);
 
   if (!song) {
@@ -141,6 +143,7 @@ export default async function SongDetailPage({
           writers,
           labels: labels ?? [],
           publishers: publishers ?? [],
+          pros: pros ?? [],
         }}
         action={updateWithId}
         submitLabel="Save changes"

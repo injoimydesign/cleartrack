@@ -32,13 +32,20 @@ export function SearchableSelect({
   exclude = [],
   placeholder = "Select…",
   createAction,
+  onRequestCreate,
 }: {
   options: SearchableOption[];
   value: string | null;
   onChange: (id: string, name: string) => void;
   exclude?: string[];
   placeholder?: string;
+  /** Direct create-inline flow: creates with just a name. */
   createAction?: (name: string) => Promise<{ id: string; name: string }>;
+  /** Escape hatch for richer creation (e.g. a modal with more fields).
+   * When provided, "Add "<name>"" calls this instead of `createAction` —
+   * the caller is responsible for eventually calling `onChange` once the
+   * new record exists. */
+  onRequestCreate?: (name: string) => void;
 }) {
   const [locallyAdded, setLocallyAdded] = useState<SearchableOption[]>([]);
   const [open, setOpen] = useState(false);
@@ -77,7 +84,14 @@ export function SearchableSelect({
 
   function addNew() {
     const name = query.trim();
-    if (!name || !createAction) return;
+    if (!name) return;
+    if (onRequestCreate) {
+      onRequestCreate(name);
+      setQuery("");
+      setOpen(false);
+      return;
+    }
+    if (!createAction) return;
     startTransition(async () => {
       const created = await createAction(name);
       setLocallyAdded((prev) => [...prev, created]);
@@ -141,7 +155,7 @@ export function SearchableSelect({
             {filtered.length === 0 && !query.trim() && (
               <li className="px-3 py-2 text-sm text-console-text-muted">No options.</li>
             )}
-            {createAction && query.trim() && !exactMatch && (
+            {(createAction || onRequestCreate) && query.trim() && !exactMatch && (
               <li>
                 <button
                   type="button"
