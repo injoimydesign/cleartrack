@@ -12,6 +12,7 @@ type NameEntityRow = {
   name: string;
   created_at: string;
   updated_at: string;
+  search_vector: string;
 };
 type NameEntityInsert = { id?: string; name: string };
 type NameEntityUpdate = Partial<NameEntityInsert>;
@@ -33,6 +34,7 @@ export type Database = {
           publisher_id: string | null;
           created_at: string;
           updated_at: string;
+          search_vector: string;
         };
         Insert: {
           id?: string;
@@ -65,6 +67,8 @@ export type Database = {
           company?: string | null;
           business_address?: string | null;
           phone?: string | null;
+          locked?: boolean;
+          lock_message?: string;
         };
         Update: Partial<Database["public"]["Tables"]["profiles"]["Insert"]>;
         Relationships: [];
@@ -100,6 +104,7 @@ export type Database = {
           publisher_id: string | null;
           created_at: string;
           updated_at: string;
+          search_vector: string;
         };
         Insert: { id?: string; name: string; publisher_id?: string | null };
         Update: Partial<Database["public"]["Tables"]["writers"]["Insert"]>;
@@ -137,6 +142,25 @@ export type Database = {
         Update: Partial<
           Database["public"]["Tables"]["song_labels"]["Insert"]
         >;
+        Relationships: [];
+      };
+      folders: {
+        Row: {
+          id: string;
+          owner_id: string;
+          name: string;
+          description: string | null;
+          created_at: string;
+          updated_at: string;
+        };
+        Insert: { id?: string; owner_id: string; name: string; description?: string | null };
+        Update: Partial<Database["public"]["Tables"]["folders"]["Insert"]>;
+        Relationships: [];
+      };
+      folder_songs: {
+        Row: { folder_id: string; song_id: string; added_at: string };
+        Insert: { folder_id: string; song_id: string };
+        Update: Partial<{ folder_id: string; song_id: string }>;
         Relationships: [];
       };
     };

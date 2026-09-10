@@ -2,7 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
-import { createAdminClient } from "@/lib/supabase/admin";
+import { createClient } from "@/lib/supabase/server";
 
 const BASE_PATH = "/artists";
 
@@ -10,7 +10,7 @@ export async function createArtist(formData: FormData) {
   const name = (formData.get("name") ?? "").toString().trim();
   if (!name) throw new Error("Name is required.");
 
-  const supabase = createAdminClient();
+  const supabase = await createClient();
   const { error } = await supabase.from("artists").insert({ name });
   if (error) throw new Error(error.message);
 
@@ -20,7 +20,7 @@ export async function createArtist(formData: FormData) {
 
 // Used by the Song form's artist picker for inline "Add "<name>"" creation.
 export async function createArtistInline(name: string) {
-  const supabase = createAdminClient();
+  const supabase = await createClient();
   const { data, error } = await supabase
     .from("artists")
     .insert({ name })
@@ -35,7 +35,7 @@ export async function updateArtist(id: string, formData: FormData) {
   const name = (formData.get("name") ?? "").toString().trim();
   if (!name) throw new Error("Name is required.");
 
-  const supabase = createAdminClient();
+  const supabase = await createClient();
   const { error } = await supabase.from("artists").update({ name }).eq("id", id);
   if (error) throw new Error(error.message);
 
@@ -44,7 +44,7 @@ export async function updateArtist(id: string, formData: FormData) {
 }
 
 export async function deleteArtists(ids: string[]) {
-  const supabase = createAdminClient();
+  const supabase = await createClient();
   const { error } = await supabase.from("artists").delete().in("id", ids);
   if (error) throw new Error(error.message);
   revalidatePath(BASE_PATH);

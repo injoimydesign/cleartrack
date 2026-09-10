@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { createAdminClient } from "@/lib/supabase/admin";
+import { createClient } from "@/lib/supabase/server";
 import { deletePublishers, updatePublisher } from "@/app/(admin)/publishers/actions";
 import { NameEntityForm } from "@/components/admin/name-entity-form";
 
@@ -12,7 +12,7 @@ export default async function PublisherDetailPage({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  const supabase = createAdminClient();
+  const supabase = await createClient();
   const { data: entity } = await supabase
     .from("publishers")
     .select("id, name")

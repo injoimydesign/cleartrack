@@ -2,7 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
-import { createAdminClient } from "@/lib/supabase/admin";
+import { createClient } from "@/lib/supabase/server";
 
 const BASE_PATH = "/writers";
 
@@ -21,7 +21,7 @@ async function syncProLinks(
   table: "writer_pros" | "writer_publisher_pros",
   proIds: string[],
 ) {
-  const supabase = createAdminClient();
+  const supabase = await createClient();
   const { error: deleteError } = await supabase
     .from(table)
     .delete()
@@ -43,7 +43,7 @@ export async function createWriter(formData: FormData) {
   const proIds = parseIdArray(formData.get("pro_ids"));
   const publisherProIds = parseIdArray(formData.get("publisher_pro_ids"));
 
-  const supabase = createAdminClient();
+  const supabase = await createClient();
   const { data, error } = await supabase
     .from("writers")
     .insert({ name, publisher_id: publisherId })
@@ -60,7 +60,7 @@ export async function createWriter(formData: FormData) {
 
 // Used by the Song form's writer picker for inline "Add "<name>"" creation.
 export async function createWriterInline(name: string) {
-  const supabase = createAdminClient();
+  const supabase = await createClient();
   const { data, error } = await supabase
     .from("writers")
     .insert({ name })
@@ -84,7 +84,7 @@ export async function createWriterFull(input: {
   const name = input.name.trim();
   if (!name) throw new Error("Name is required.");
 
-  const supabase = createAdminClient();
+  const supabase = await createClient();
   const { data, error } = await supabase
     .from("writers")
     .insert({ name, publisher_id: input.publisherId })
@@ -106,7 +106,7 @@ export async function updateWriter(id: string, formData: FormData) {
   const proIds = parseIdArray(formData.get("pro_ids"));
   const publisherProIds = parseIdArray(formData.get("publisher_pro_ids"));
 
-  const supabase = createAdminClient();
+  const supabase = await createClient();
   const { error } = await supabase
     .from("writers")
     .update({ name, publisher_id: publisherId })
@@ -121,7 +121,7 @@ export async function updateWriter(id: string, formData: FormData) {
 }
 
 export async function deleteWriters(ids: string[]) {
-  const supabase = createAdminClient();
+  const supabase = await createClient();
   const { error } = await supabase.from("writers").delete().in("id", ids);
   if (error) throw new Error(error.message);
   revalidatePath(BASE_PATH);

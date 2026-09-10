@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { createAdminClient } from "@/lib/supabase/admin";
+import { createClient } from "@/lib/supabase/server";
 import { createSong } from "@/app/(admin)/songs/actions";
 import { SongForm } from "@/app/(admin)/songs/song-form";
 import type { WriterMeta } from "@/lib/format-writer";
@@ -15,7 +15,7 @@ type WriterRow = {
 };
 
 export default async function NewSongPage() {
-  const supabase = createAdminClient();
+  const supabase = await createClient();
   const [
     { data: artists },
     { data: writerRows },

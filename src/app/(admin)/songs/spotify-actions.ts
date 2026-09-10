@@ -1,6 +1,6 @@
 "use server";
 
-import { createAdminClient } from "@/lib/supabase/admin";
+import { createClient } from "@/lib/supabase/server";
 import { searchTrack, getAlbumCopyrightText } from "@/lib/spotify/client";
 
 // PHASE 1/2 NOTE (still applies): publisher lookup/creation here uses the
@@ -77,7 +77,7 @@ export async function fetchSpotifyPublisher(
     return { ok: false, error: "Spotify has no copyright/publishing credit for this album." };
   }
 
-  const supabase = createAdminClient();
+  const supabase = await createClient();
   const { data: existing } = await supabase
     .from("publishers")
     .select("id, name")

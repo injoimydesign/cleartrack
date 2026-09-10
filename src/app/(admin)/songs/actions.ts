@@ -2,13 +2,13 @@
 
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
-import { createAdminClient } from "@/lib/supabase/admin";
+import { createClient } from "@/lib/supabase/server";
 
-// PHASE 1 NOTE: these actions use the service-role admin client because
-// there's no signed-in session yet (auth lands in Phase 6 — see
-// src/lib/supabase/admin.ts for the swap-over plan). The *_write_admin RLS
-// policies from migration 0001 already exist and will start actually
-// gating these writes the moment this file switches to the session client.
+// PHASE 6 UPDATE: these actions now use the session-aware client
+// (lib/supabase/server.ts) instead of the Phase 1 service-role shortcut —
+// the *_write_admin RLS policies from migration 0001 are now actually
+// being enforced by the database for every write here, not just present
+// in the schema.
 
 function textOrNull(value: FormDataEntryValue | null) {
   const str = (value ?? "").toString().trim();
@@ -48,7 +48,7 @@ function parseIds(raw: FormDataEntryValue | null): string[] {
 // for Phase 2. Revisit if catalogs get large enough that a full
 // delete + reinsert on every save becomes a real cost (unlikely at scale).
 async function syncSongArtists(songId: string, artistIds: string[]) {
-  const supabase = createAdminClient();
+  const supabase = await createClient();
   const { error: deleteError } = await supabase
     .from("song_artists")
     .delete()
@@ -63,7 +63,7 @@ async function syncSongArtists(songId: string, artistIds: string[]) {
 }
 
 async function syncSongWriters(songId: string, picked: PickedRef[]) {
-  const supabase = createAdminClient();
+  const supabase = await createClient();
   const { error: deleteError } = await supabase
     .from("song_writers")
     .delete()
@@ -82,7 +82,7 @@ async function syncSongWriters(songId: string, picked: PickedRef[]) {
 }
 
 async function syncSongLabels(songId: string, picked: PickedRef[]) {
-  const supabase = createAdminClient();
+  const supabase = await createClient();
   const { error: deleteError } = await supabase
     .from("song_labels")
     .delete()
@@ -106,7 +106,7 @@ export async function createSong(formData: FormData) {
     throw new Error("Title is required.");
   }
 
-  const supabase = createAdminClient();
+  const supabase = await createClient();
   const { data, error } = await supabase
     .from("songs")
     .insert({
@@ -137,7 +137,7 @@ export async function updateSong(id: string, formData: FormData) {
     throw new Error("Title is required.");
   }
 
-  const supabase = createAdminClient();
+  const supabase = await createClient();
   const { error } = await supabase
     .from("songs")
     .update({
@@ -162,7 +162,7 @@ export async function updateSong(id: string, formData: FormData) {
 }
 
 export async function deleteSong(id: string) {
-  const supabase = createAdminClient();
+  const supabase = await createClient();
   const { error } = await supabase.from("songs").delete().eq("id", id);
 
   if (error) {
@@ -174,7 +174,7 @@ export async function deleteSong(id: string) {
 }
 
 export async function deleteSongs(ids: string[]) {
-  const supabase = createAdminClient();
+  const supabase = await createClient();
   const { error } = await supabase.from("songs").delete().in("id", ids);
   if (error) {
     throw new Error(error.message);

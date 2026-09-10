@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { createAdminClient } from "@/lib/supabase/admin";
+import { createClient } from "@/lib/supabase/server";
 import { deleteSong, updateSong } from "@/app/(admin)/songs/actions";
 import { SongForm } from "@/app/(admin)/songs/song-form";
 import type { WriterMeta } from "@/lib/format-writer";
@@ -41,7 +41,7 @@ export default async function SongDetailPage({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  const supabase = createAdminClient();
+  const supabase = await createClient();
 
   const [
     { data: song },

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { createAdminClient } from "@/lib/supabase/admin";
+import { createClient } from "@/lib/supabase/server";
 import { deleteWriters } from "./actions";
 import { BulkList } from "@/components/admin/bulk-list";
 import { ErrorBanner } from "@/components/admin/error-banner";
@@ -13,7 +13,7 @@ type WriterListRow = {
 };
 
 export default async function WritersPage() {
-  const supabase = createAdminClient();
+  const supabase = await createClient();
   const { data, error } = await supabase
     .from("writers")
     .select("id, name, song_writers(count)")

@@ -2,7 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
-import { createAdminClient } from "@/lib/supabase/admin";
+import { createClient } from "@/lib/supabase/server";
 
 const BASE_PATH = "/publishers";
 
@@ -10,7 +10,7 @@ export async function createPublisher(formData: FormData) {
   const name = (formData.get("name") ?? "").toString().trim();
   if (!name) throw new Error("Name is required.");
 
-  const supabase = createAdminClient();
+  const supabase = await createClient();
   const { error } = await supabase.from("publishers").insert({ name });
   if (error) throw new Error(error.message);
 
@@ -21,7 +21,7 @@ export async function createPublisher(formData: FormData) {
 // Used by pickers elsewhere (song form publisher lookup, writer form
 // publisher field) for inline add-new-by-name creation.
 export async function createPublisherInline(name: string) {
-  const supabase = createAdminClient();
+  const supabase = await createClient();
   const { data, error } = await supabase
     .from("publishers")
     .insert({ name })
@@ -36,7 +36,7 @@ export async function updatePublisher(id: string, formData: FormData) {
   const name = (formData.get("name") ?? "").toString().trim();
   if (!name) throw new Error("Name is required.");
 
-  const supabase = createAdminClient();
+  const supabase = await createClient();
   const { error } = await supabase.from("publishers").update({ name }).eq("id", id);
   if (error) throw new Error(error.message);
 
@@ -45,7 +45,7 @@ export async function updatePublisher(id: string, formData: FormData) {
 }
 
 export async function deletePublishers(ids: string[]) {
-  const supabase = createAdminClient();
+  const supabase = await createClient();
   const { error } = await supabase.from("publishers").delete().in("id", ids);
   if (error) throw new Error(error.message);
   revalidatePath(BASE_PATH);

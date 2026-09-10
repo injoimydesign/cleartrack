@@ -2,7 +2,7 @@
 
 import { useState, useTransition } from "react";
 import { toast } from "sonner";
-import { CoverArt } from "@/components/admin/cover-art";
+import { CoverArt } from "@/components/shared/cover-art";
 import { SearchableSelect, type SearchableOption } from "@/components/admin/searchable-select";
 import { RowPicker, SplitTotalBadge, type PickerRow } from "@/components/admin/row-picker";
 import { createArtistInline } from "@/app/(admin)/artists/actions";

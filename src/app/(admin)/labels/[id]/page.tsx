@@ -1,10 +1,20 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { createAdminClient } from "@/lib/supabase/admin";
+import { createClient } from "@/lib/supabase/server";
 import { deleteLabels, updateLabel } from "@/app/(admin)/labels/actions";
 import { NameEntityForm } from "@/components/admin/name-entity-form";
+import { EntitySongsList, type EntitySongRow } from "@/components/admin/entity-songs-list";
 
 export const dynamic = "force-dynamic";
+
+type LabelDetail = {
+  id: string;
+  name: string;
+  song_labels: {
+    split_percent: number;
+    songs: { id: string; title: string; cover_art_url: string | null } | null;
+  }[];
+};
 
 export default async function LabelDetailPage({
   params,
@@ -12,16 +22,26 @@ export default async function LabelDetailPage({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  const supabase = createAdminClient();
+  const supabase = await createClient();
   const { data: entity } = await supabase
     .from("labels")
-    .select("id, name")
+    .select("id, name, song_labels(split_percent, songs(id, title, cover_art_url))")
     .eq("id", id)
-    .maybeSingle();
+    .maybeSingle()
+    .returns<LabelDetail | null>();
 
   if (!entity) {
     notFound();
   }
+
+  const songs: EntitySongRow[] = entity.song_labels
+    .filter((sl) => sl.songs)
+    .map((sl) => ({
+      id: sl.songs!.id,
+      title: sl.songs!.title,
+      cover_art_url: sl.songs!.cover_art_url,
+      splitPercent: sl.split_percent,
+    }));
 
   const updateWithId = updateLabel.bind(null, entity.id);
   const deleteWithId = deleteLabels.bind(null, [entity.id]);
@@ -53,6 +73,11 @@ export default async function LabelDetailPage({
         submitLabel="Save changes"
         placeholder="Label name"
       />
+
+      <div className="mt-8 border-t border-console-border pt-6">
+        <h2 className="mb-3 text-sm font-medium">Songs</h2>
+        <EntitySongsList songs={songs} />
+      </div>
     </div>
   );
 }

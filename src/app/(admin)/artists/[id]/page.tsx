@@ -1,10 +1,17 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { createAdminClient } from "@/lib/supabase/admin";
+import { createClient } from "@/lib/supabase/server";
 import { deleteArtists, updateArtist } from "@/app/(admin)/artists/actions";
 import { NameEntityForm } from "@/components/admin/name-entity-form";
+import { EntitySongsList, type EntitySongRow } from "@/components/admin/entity-songs-list";
 
 export const dynamic = "force-dynamic";
+
+type ArtistDetail = {
+  id: string;
+  name: string;
+  song_artists: { songs: { id: string; title: string; cover_art_url: string | null } | null }[];
+};
 
 export default async function ArtistDetailPage({
   params,
@@ -12,16 +19,25 @@ export default async function ArtistDetailPage({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  const supabase = createAdminClient();
+  const supabase = await createClient();
   const { data: entity } = await supabase
     .from("artists")
-    .select("id, name")
+    .select("id, name, song_artists(songs(id, title, cover_art_url))")
     .eq("id", id)
-    .maybeSingle();
+    .maybeSingle()
+    .returns<ArtistDetail | null>();
 
   if (!entity) {
     notFound();
   }
+
+  const songs: EntitySongRow[] = entity.song_artists
+    .filter((sa) => sa.songs)
+    .map((sa) => ({
+      id: sa.songs!.id,
+      title: sa.songs!.title,
+      cover_art_url: sa.songs!.cover_art_url,
+    }));
 
   const updateWithId = updateArtist.bind(null, entity.id);
   const deleteWithId = deleteArtists.bind(null, [entity.id]);
@@ -53,6 +69,11 @@ export default async function ArtistDetailPage({
         submitLabel="Save changes"
         placeholder="Artist name"
       />
+
+      <div className="mt-8 border-t border-console-border pt-6">
+        <h2 className="mb-3 text-sm font-medium">Songs</h2>
+        <EntitySongsList songs={songs} />
+      </div>
     </div>
   );
 }

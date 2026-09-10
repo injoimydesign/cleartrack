@@ -1,9 +1,42 @@
 {
   "node": {
+    "0022f5957c3cf13d7796d5ec2fe3d251040e01d7bd": {
+      "workers": {
+        "app/(admin)/publishers/page": {
+          "moduleId": "[project]/.next-internal/server/app/(admin)/publishers/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/app/auth/actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/src/app/(admin)/publishers/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "signOut",
+      "filename": "src/app/auth/actions.ts"
+    },
+    "4099189ded5ea391f5a73db163e0dd5be6546fd98d": {
+      "workers": {
+        "app/(admin)/publishers/page": {
+          "moduleId": "[project]/.next-internal/server/app/(admin)/publishers/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/app/auth/actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/src/app/(admin)/publishers/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "signUp",
+      "filename": "src/app/auth/actions.ts"
+    },
+    "40e664e1346b5efd99398a1b926f85d5430e036c4c": {
+      "workers": {
+        "app/(admin)/publishers/page": {
+          "moduleId": "[project]/.next-internal/server/app/(admin)/publishers/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/app/auth/actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/src/app/(admin)/publishers/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "signIn",
+      "filename": "src/app/auth/actions.ts"
+    },
     "40180de1d23806e7f286e3d13e899527db913b1403": {
       "workers": {
         "app/(admin)/publishers/page": {
-          "moduleId": "[project]/.next-internal/server/app/(admin)/publishers/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/app/(admin)/publishers/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "moduleId": "[project]/.next-internal/server/app/(admin)/publishers/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/app/auth/actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/src/app/(admin)/publishers/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
           "async": false,
           "codeHash": null
         }
@@ -14,7 +47,7 @@
     "40890e0ad3725886027c610abb8b8217afab0b1b3b": {
       "workers": {
         "app/(admin)/publishers/page": {
-          "moduleId": "[project]/.next-internal/server/app/(admin)/publishers/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/app/(admin)/publishers/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "moduleId": "[project]/.next-internal/server/app/(admin)/publishers/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/app/auth/actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/src/app/(admin)/publishers/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
           "async": false,
           "codeHash": null
         }
@@ -25,7 +58,7 @@
     "409f1f1e1b7da6a6288c78d630c47a416611f98dcf": {
       "workers": {
         "app/(admin)/publishers/page": {
-          "moduleId": "[project]/.next-internal/server/app/(admin)/publishers/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/app/(admin)/publishers/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "moduleId": "[project]/.next-internal/server/app/(admin)/publishers/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/app/auth/actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/src/app/(admin)/publishers/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
           "async": false,
           "codeHash": null
         }
@@ -36,7 +69,7 @@
     "608b0d70965cc782130bc7a6f19b1eeb324675a18b": {
       "workers": {
         "app/(admin)/publishers/page": {
-          "moduleId": "[project]/.next-internal/server/app/(admin)/publishers/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/app/(admin)/publishers/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "moduleId": "[project]/.next-internal/server/app/(admin)/publishers/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/app/auth/actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/src/app/(admin)/publishers/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
           "async": false,
           "codeHash": null
         }

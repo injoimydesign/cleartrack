@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { createAdminClient } from "@/lib/supabase/admin";
+import { createClient } from "@/lib/supabase/server";
 import { deleteSongs } from "@/app/(admin)/songs/actions";
 import { SongListPanel, type SongListRow } from "@/app/(admin)/songs/song-list-panel";
 import { ErrorBanner } from "@/components/admin/error-banner";
@@ -16,7 +16,7 @@ type SongRow = {
 };
 
 export default async function SongsPage() {
-  const supabase = createAdminClient();
+  const supabase = await createClient();
   const { data, error } = await supabase
     .from("songs")
     .select(

@@ -3,7 +3,7 @@
 import { useState, useTransition } from "react";
 import Link from "next/link";
 import { Checkbox } from "@/components/admin/checkbox";
-import { CoverArt } from "@/components/admin/cover-art";
+import { CoverArt } from "@/components/shared/cover-art";
 import { sumSplits } from "@/lib/sum-splits";
 
 export type SongListRow = {

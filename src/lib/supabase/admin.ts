@@ -12,14 +12,12 @@ import type { Database } from "@/lib/types/database";
  * favor of publishable/secret keys (same privilege levels, just not
  * JWT-based). See `.env.local.example`.
  *
- * PHASE 1 NOTE: admin CRUD currently uses this client for every write,
- * because there is no auth/session yet (that lands in Phase 6). Once sign-in
- * exists, swap the admin song/reference-data actions over to the session
- * client in `server.ts` — the `*_write_admin` RLS policies already enforce
- * the admin-role check at the database layer, so that swap is what actually
- * turns on the enforcement this app is designed around. This client should
- * end up reserved for genuinely trusted server-only tasks (e.g. the Spotify
- * sync job in Phase 3), not routine admin writes.
+ * PHASE 6 UPDATE: as of auth landing, every admin CRUD action and page has
+ * been switched to the session-aware client in `server.ts`, so the
+ * `*_write_admin` RLS policies are now actually enforced per-request. This
+ * client is currently unused in the app — kept as a reserved escape hatch
+ * for a genuinely trusted server-only task with no user session to run
+ * under (e.g. a future scheduled sync job), not for routine admin writes.
  */
 export function createAdminClient() {
   return createSupabaseClient<Database>(

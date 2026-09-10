@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { createAdminClient } from "@/lib/supabase/admin";
+import { createClient } from "@/lib/supabase/server";
 import { deleteLabels } from "./actions";
 import { BulkList } from "@/components/admin/bulk-list";
 import { ErrorBanner } from "@/components/admin/error-banner";
@@ -7,7 +7,7 @@ import { ErrorBanner } from "@/components/admin/error-banner";
 export const dynamic = "force-dynamic";
 
 export default async function LabelsPage() {
-  const supabase = createAdminClient();
+  const supabase = await createClient();
   const { data, error } = await supabase
     .from("labels")
     .select("id, name")

@@ -1,9 +1,42 @@
 {
   "node": {
+    "0022f5957c3cf13d7796d5ec2fe3d251040e01d7bd": {
+      "workers": {
+        "app/(admin)/artists/page": {
+          "moduleId": "[project]/.next-internal/server/app/(admin)/artists/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/app/auth/actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/src/app/(admin)/artists/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "signOut",
+      "filename": "src/app/auth/actions.ts"
+    },
+    "4099189ded5ea391f5a73db163e0dd5be6546fd98d": {
+      "workers": {
+        "app/(admin)/artists/page": {
+          "moduleId": "[project]/.next-internal/server/app/(admin)/artists/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/app/auth/actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/src/app/(admin)/artists/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "signUp",
+      "filename": "src/app/auth/actions.ts"
+    },
+    "40e664e1346b5efd99398a1b926f85d5430e036c4c": {
+      "workers": {
+        "app/(admin)/artists/page": {
+          "moduleId": "[project]/.next-internal/server/app/(admin)/artists/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/app/auth/actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/src/app/(admin)/artists/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "signIn",
+      "filename": "src/app/auth/actions.ts"
+    },
     "402c12142a5a760598ec7aab5e11fb0910053e6317": {
       "workers": {
         "app/(admin)/artists/page": {
-          "moduleId": "[project]/.next-internal/server/app/(admin)/artists/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/app/(admin)/artists/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "moduleId": "[project]/.next-internal/server/app/(admin)/artists/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/app/auth/actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/src/app/(admin)/artists/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
           "async": false,
           "codeHash": null
         }
@@ -14,7 +47,7 @@
     "406084a770008dbbb92743b7fc2d636293efa68f31": {
       "workers": {
         "app/(admin)/artists/page": {
-          "moduleId": "[project]/.next-internal/server/app/(admin)/artists/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/app/(admin)/artists/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "moduleId": "[project]/.next-internal/server/app/(admin)/artists/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/app/auth/actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/src/app/(admin)/artists/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
           "async": false,
           "codeHash": null
         }
@@ -25,7 +58,7 @@
     "40d4b8ecc36e12019cc355a0843464daa1f56238e9": {
       "workers": {
         "app/(admin)/artists/page": {
-          "moduleId": "[project]/.next-internal/server/app/(admin)/artists/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/app/(admin)/artists/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "moduleId": "[project]/.next-internal/server/app/(admin)/artists/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/app/auth/actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/src/app/(admin)/artists/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
           "async": false,
           "codeHash": null
         }
@@ -36,7 +69,7 @@
     "6077414cd07c1a7aa2e910616c067211c1f3130dcd": {
       "workers": {
         "app/(admin)/artists/page": {
-          "moduleId": "[project]/.next-internal/server/app/(admin)/artists/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/app/(admin)/artists/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "moduleId": "[project]/.next-internal/server/app/(admin)/artists/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/app/auth/actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/src/app/(admin)/artists/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
           "async": false,
           "codeHash": null
         }

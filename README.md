@@ -30,6 +30,38 @@ technical context. This README covers local setup only.
    ```
 5. `npm run dev` → http://localhost:3000/songs
 
+## Phase 9 status
+
+Saved songs & folders (PRD §9), admin user management at `/users` (PRD §7), and a self-service `/profile` page. "Saving" a song means adding it to a folder — there's no separate saved_songs table. `/users` is the second and last legitimate use of the service-role client in the app, needed specifically for Supabase's Auth Admin API (listing/deleting users), always gated behind a session-client admin check first.
+
+**Requires a new migration** (`0006_folders.sql`) — run `npx supabase db push`.
+
+## Phase 8 status
+
+`/` is the real public landing page now (PRD §8): branding, sign-in/create-account CTAs, a recently-added cover-art strip, feature cards, and SEO/OG metadata. Signed-in visitors get redirected straight to `/browse`. No new migration.
+
+## Phase 7 status
+
+Customer-facing Browse (`/browse`) and song detail (`/music/[id]`) pages, per PRD §8. Signed-out visitors see a bare card grid on Browse (no catalog details); signed in, it's three recent cards + a paginated list. The song page has full rights data, the Spotify embed preview, and a "more by this artist" strip. `SaveControls` correctly shows "Sign in to View" when signed out — the signed-in save button is an honest placeholder, since the folders/saved-songs schema is Phase 9.
+
+No new migration this phase.
+
+## Phase 6 status
+
+Real authentication (PRD §7): self sign-up/sign-in at `/auth`, first-account-becomes-admin trigger, session middleware (now `src/proxy.ts` — Next.js 16 renamed the file convention) gating every catalog route, and locked-account handling. **Every admin action and page now runs under the signed-in user's session instead of the Phase 1 service-role shortcut** — the admin-only RLS policies that have existed since Phase 1 are finally actually being enforced by the database, not just present in the schema.
+
+**Requires a new migration** (`0005_first_user_admin.sql`) — run `npx supabase db push`. The first account you create through `/auth` becomes the admin; there's no signed-out access to the catalog anymore.
+
+## Phase 5 status
+
+Browsing content added to the existing Artist/Writer/Label detail pages (PRD §6) — no new routes, no migration needed. Artist and Label pages now show a "Songs" section; the Writer page also gets a small PRO/Publisher metadata summary above the edit form (`Publisher Name · PRO` format, per PRD §2).
+
+## Phase 4 status
+
+Global search across Songs, Artists, Writers, Labels, and Publishers (PRD §5) — a search bar in the admin header, `/search` results page grouped by type, backed by Postgres full-text search (generated `tsvector` columns + GIN indexes, prefix-matching so partial words still hit).
+
+**Requires a new migration** — run `npx supabase db push` again to apply `0004_search.sql` before search will return results.
+
 ## Song form & list UX refresh
 
 Adapted from an uploaded Lovable-generated reference (different stack — TanStack Router/shadcn — reimplemented here, not ported): the song form is now a two-column panel layout with row-based pickers for Writers/Labels/Artists (one row per item, split-percent inline, duplicate-exclusion, an "Add …" button), writer rows show a PRO/publisher info line, split totals show as a colored badge, and cover-art/publisher Spotify fetches are two independent buttons with toast feedback. The songs list now shows cover art, an artist+writer subtitle, label badges, and live split-percentage indicators per row.
