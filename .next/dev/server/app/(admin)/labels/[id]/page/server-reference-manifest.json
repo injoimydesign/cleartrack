@@ -1,0 +1,49 @@
+{
+  "node": {
+    "40641c1da16ac277d255b7978c6135ef881cea237e": {
+      "workers": {
+        "app/(admin)/labels/[id]/page": {
+          "moduleId": "[project]/.next-internal/server/app/(admin)/labels/[id]/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/app/(admin)/labels/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "createLabelInline",
+      "filename": "src/app/(admin)/labels/actions.ts"
+    },
+    "407cb5922bf25c3adea3611e815783701279948f44": {
+      "workers": {
+        "app/(admin)/labels/[id]/page": {
+          "moduleId": "[project]/.next-internal/server/app/(admin)/labels/[id]/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/app/(admin)/labels/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "createLabel",
+      "filename": "src/app/(admin)/labels/actions.ts"
+    },
+    "40dacaf3c4a663fb34f192d42fc4d39ad7f1de4987": {
+      "workers": {
+        "app/(admin)/labels/[id]/page": {
+          "moduleId": "[project]/.next-internal/server/app/(admin)/labels/[id]/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/app/(admin)/labels/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "deleteLabels",
+      "filename": "src/app/(admin)/labels/actions.ts"
+    },
+    "60fb92f469776b9a7c818d86e81d574a5fb8f3ad1c": {
+      "workers": {
+        "app/(admin)/labels/[id]/page": {
+          "moduleId": "[project]/.next-internal/server/app/(admin)/labels/[id]/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/app/(admin)/labels/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "updateLabel",
+      "filename": "src/app/(admin)/labels/actions.ts"
+    }
+  },
+  "edge": {}
+}

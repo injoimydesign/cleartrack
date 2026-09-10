@@ -1,4 +1,6 @@
 {
-  "/songs/new/page": "app/songs/new/page.js",
-  "/songs/page": "app/songs/page.js"
+  "/(admin)/labels/page": "app/(admin)/labels/page.js",
+  "/(admin)/songs/new/page": "app/(admin)/songs/new/page.js",
+  "/(admin)/songs/page": "app/(admin)/songs/page.js",
+  "/(admin)/writers/page": "app/(admin)/writers/page.js"
 }

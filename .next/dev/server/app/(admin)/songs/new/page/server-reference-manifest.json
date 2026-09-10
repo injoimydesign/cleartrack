@@ -1,0 +1,115 @@
+{
+  "node": {
+    "4070356a6278574845746c2b1b11cb3256587b91b8": {
+      "workers": {
+        "app/(admin)/songs/new/page": {
+          "moduleId": "[project]/.next-internal/server/app/(admin)/songs/new/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/app/(admin)/songs/actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/src/app/(admin)/songs/spotify-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/src/app/(admin)/publishers/actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/src/app/(admin)/labels/actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE4 => \"[project]/src/app/(admin)/writers/actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE5 => \"[project]/src/app/(admin)/artists/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "createSong",
+      "filename": "src/app/(admin)/songs/actions.ts"
+    },
+    "40c9f69e95a3b3dbb5f07c73aaf2b482a5c15b427c": {
+      "workers": {
+        "app/(admin)/songs/new/page": {
+          "moduleId": "[project]/.next-internal/server/app/(admin)/songs/new/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/app/(admin)/songs/actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/src/app/(admin)/songs/spotify-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/src/app/(admin)/publishers/actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/src/app/(admin)/labels/actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE4 => \"[project]/src/app/(admin)/writers/actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE5 => \"[project]/src/app/(admin)/artists/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "deleteSong",
+      "filename": "src/app/(admin)/songs/actions.ts"
+    },
+    "40de3937b63a4e22d71e6051fece05a74b1b36f578": {
+      "workers": {
+        "app/(admin)/songs/new/page": {
+          "moduleId": "[project]/.next-internal/server/app/(admin)/songs/new/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/app/(admin)/songs/actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/src/app/(admin)/songs/spotify-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/src/app/(admin)/publishers/actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/src/app/(admin)/labels/actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE4 => \"[project]/src/app/(admin)/writers/actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE5 => \"[project]/src/app/(admin)/artists/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "deleteSongs",
+      "filename": "src/app/(admin)/songs/actions.ts"
+    },
+    "60d9beaddb27c6477459882b89abf66ede490b2370": {
+      "workers": {
+        "app/(admin)/songs/new/page": {
+          "moduleId": "[project]/.next-internal/server/app/(admin)/songs/new/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/app/(admin)/songs/actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/src/app/(admin)/songs/spotify-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/src/app/(admin)/publishers/actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/src/app/(admin)/labels/actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE4 => \"[project]/src/app/(admin)/writers/actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE5 => \"[project]/src/app/(admin)/artists/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "updateSong",
+      "filename": "src/app/(admin)/songs/actions.ts"
+    },
+    "60e9a895cfd0197da00de06a690d772539ab060466": {
+      "workers": {
+        "app/(admin)/songs/new/page": {
+          "moduleId": "[project]/.next-internal/server/app/(admin)/songs/new/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/app/(admin)/songs/actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/src/app/(admin)/songs/spotify-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/src/app/(admin)/publishers/actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/src/app/(admin)/labels/actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE4 => \"[project]/src/app/(admin)/writers/actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE5 => \"[project]/src/app/(admin)/artists/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "fetchSpotifyPublisher",
+      "filename": "src/app/(admin)/songs/spotify-actions.ts"
+    },
+    "604c0ad1147329a85acf33e42636cfe052cc62aeab": {
+      "workers": {
+        "app/(admin)/songs/new/page": {
+          "moduleId": "[project]/.next-internal/server/app/(admin)/songs/new/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/app/(admin)/songs/actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/src/app/(admin)/songs/spotify-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/src/app/(admin)/publishers/actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/src/app/(admin)/labels/actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE4 => \"[project]/src/app/(admin)/writers/actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE5 => \"[project]/src/app/(admin)/artists/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "fetchSpotifyCoverArt",
+      "filename": "src/app/(admin)/songs/spotify-actions.ts"
+    },
+    "409f1f1e1b7da6a6288c78d630c47a416611f98dcf": {
+      "workers": {
+        "app/(admin)/songs/new/page": {
+          "moduleId": "[project]/.next-internal/server/app/(admin)/songs/new/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/app/(admin)/songs/actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/src/app/(admin)/songs/spotify-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/src/app/(admin)/publishers/actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/src/app/(admin)/labels/actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE4 => \"[project]/src/app/(admin)/writers/actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE5 => \"[project]/src/app/(admin)/artists/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "createPublisherInline",
+      "filename": "src/app/(admin)/publishers/actions.ts"
+    },
+    "40641c1da16ac277d255b7978c6135ef881cea237e": {
+      "workers": {
+        "app/(admin)/songs/new/page": {
+          "moduleId": "[project]/.next-internal/server/app/(admin)/songs/new/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/app/(admin)/songs/actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/src/app/(admin)/songs/spotify-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/src/app/(admin)/publishers/actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/src/app/(admin)/labels/actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE4 => \"[project]/src/app/(admin)/writers/actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE5 => \"[project]/src/app/(admin)/artists/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "createLabelInline",
+      "filename": "src/app/(admin)/labels/actions.ts"
+    },
+    "40d19583f35f35839d263965c09cff1fd4f4fa1159": {
+      "workers": {
+        "app/(admin)/songs/new/page": {
+          "moduleId": "[project]/.next-internal/server/app/(admin)/songs/new/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/app/(admin)/songs/actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/src/app/(admin)/songs/spotify-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/src/app/(admin)/publishers/actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/src/app/(admin)/labels/actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE4 => \"[project]/src/app/(admin)/writers/actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE5 => \"[project]/src/app/(admin)/artists/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "createWriterInline",
+      "filename": "src/app/(admin)/writers/actions.ts"
+    },
+    "402c12142a5a760598ec7aab5e11fb0910053e6317": {
+      "workers": {
+        "app/(admin)/songs/new/page": {
+          "moduleId": "[project]/.next-internal/server/app/(admin)/songs/new/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/app/(admin)/songs/actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/src/app/(admin)/songs/spotify-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/src/app/(admin)/publishers/actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/src/app/(admin)/labels/actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE4 => \"[project]/src/app/(admin)/writers/actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE5 => \"[project]/src/app/(admin)/artists/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "createArtistInline",
+      "filename": "src/app/(admin)/artists/actions.ts"
+    }
+  },
+  "edge": {}
+}

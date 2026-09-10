@@ -1,0 +1,49 @@
+{
+  "node": {
+    "40180de1d23806e7f286e3d13e899527db913b1403": {
+      "workers": {
+        "app/(admin)/publishers/new/page": {
+          "moduleId": "[project]/.next-internal/server/app/(admin)/publishers/new/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/app/(admin)/publishers/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "createPublisher",
+      "filename": "src/app/(admin)/publishers/actions.ts"
+    },
+    "40890e0ad3725886027c610abb8b8217afab0b1b3b": {
+      "workers": {
+        "app/(admin)/publishers/new/page": {
+          "moduleId": "[project]/.next-internal/server/app/(admin)/publishers/new/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/app/(admin)/publishers/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "deletePublishers",
+      "filename": "src/app/(admin)/publishers/actions.ts"
+    },
+    "409f1f1e1b7da6a6288c78d630c47a416611f98dcf": {
+      "workers": {
+        "app/(admin)/publishers/new/page": {
+          "moduleId": "[project]/.next-internal/server/app/(admin)/publishers/new/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/app/(admin)/publishers/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "createPublisherInline",
+      "filename": "src/app/(admin)/publishers/actions.ts"
+    },
+    "608b0d70965cc782130bc7a6f19b1eeb324675a18b": {
+      "workers": {
+        "app/(admin)/publishers/new/page": {
+          "moduleId": "[project]/.next-internal/server/app/(admin)/publishers/new/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/app/(admin)/publishers/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "updatePublisher",
+      "filename": "src/app/(admin)/publishers/actions.ts"
+    }
+  },
+  "edge": {}
+}

@@ -1,0 +1,49 @@
+{
+  "node": {
+    "40acfe71a6f518235dcee1e064697f933e40112ef2": {
+      "workers": {
+        "app/(admin)/writers/page": {
+          "moduleId": "[project]/.next-internal/server/app/(admin)/writers/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/app/(admin)/writers/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "deleteWriters",
+      "filename": "src/app/(admin)/writers/actions.ts"
+    },
+    "40d19583f35f35839d263965c09cff1fd4f4fa1159": {
+      "workers": {
+        "app/(admin)/writers/page": {
+          "moduleId": "[project]/.next-internal/server/app/(admin)/writers/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/app/(admin)/writers/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "createWriterInline",
+      "filename": "src/app/(admin)/writers/actions.ts"
+    },
+    "40d1f1b6775e09c00588664a047bf3c7046f5aeb76": {
+      "workers": {
+        "app/(admin)/writers/page": {
+          "moduleId": "[project]/.next-internal/server/app/(admin)/writers/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/app/(admin)/writers/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "createWriter",
+      "filename": "src/app/(admin)/writers/actions.ts"
+    },
+    "6071d4d2a6bfefe1871001862262bbda5f5ce39b69": {
+      "workers": {
+        "app/(admin)/writers/page": {
+          "moduleId": "[project]/.next-internal/server/app/(admin)/writers/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/app/(admin)/writers/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "updateWriter",
+      "filename": "src/app/(admin)/writers/actions.ts"
+    }
+  },
+  "edge": {}
+}

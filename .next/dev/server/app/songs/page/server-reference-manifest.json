@@ -1,4 +1,49 @@
 {
-  "node": {},
+  "node": {
+    "4070356a6278574845746c2b1b11cb3256587b91b8": {
+      "workers": {
+        "app/songs/page": {
+          "moduleId": "[project]/.next-internal/server/app/songs/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/app/(admin)/songs/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "createSong",
+      "filename": "src/app/(admin)/songs/actions.ts"
+    },
+    "40c9f69e95a3b3dbb5f07c73aaf2b482a5c15b427c": {
+      "workers": {
+        "app/songs/page": {
+          "moduleId": "[project]/.next-internal/server/app/songs/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/app/(admin)/songs/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "deleteSong",
+      "filename": "src/app/(admin)/songs/actions.ts"
+    },
+    "40de3937b63a4e22d71e6051fece05a74b1b36f578": {
+      "workers": {
+        "app/songs/page": {
+          "moduleId": "[project]/.next-internal/server/app/songs/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/app/(admin)/songs/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "deleteSongs",
+      "filename": "src/app/(admin)/songs/actions.ts"
+    },
+    "60d9beaddb27c6477459882b89abf66ede490b2370": {
+      "workers": {
+        "app/songs/page": {
+          "moduleId": "[project]/.next-internal/server/app/songs/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/app/(admin)/songs/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "updateSong",
+      "filename": "src/app/(admin)/songs/actions.ts"
+    }
+  },
   "edge": {}
 }

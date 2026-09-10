@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
+import { Toaster } from "sonner";
 import "./globals.css";
 
 const plexSans = IBM_Plex_Sans({
@@ -27,6 +28,16 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="min-h-full flex flex-col bg-console-bg text-console-text font-sans">
         {children}
+        <Toaster
+          theme="dark"
+          toastOptions={{
+            style: {
+              background: "var(--console-panel)",
+              border: "1px solid var(--console-border)",
+              color: "var(--console-text)",
+            },
+          }}
+        />
       </body>
     </html>
   );

@@ -1,25 +1,27 @@
 @import "tailwindcss";
 
 /*
- * ClearTrack design tokens — "studio console" (PRD §10).
- * A mixing-console fascia, not a generic dark-mode SaaS theme: near-black
- * body panel, hairline dividers instead of card shadows, a single warm
- * amber accent standing in for a backlit dial, and monospace reserved for
- * numeric readouts (splits, counts, timestamps) — the one place a mono
- * face is earned rather than decorative.
+ * ClearTrack design tokens.
+ * Near-black warm panel, hairline dividers instead of card shadows, and a
+ * coral/red accent (swapped from an earlier amber pass per direct visual
+ * reference) carried consistently across links, primary buttons, badges,
+ * and custom form controls — the native checkbox/select never appear
+ * unstyled anywhere in the app.
  */
 :root {
-  --console-bg: #15151b;
-  --console-panel: #1d1d26;
-  --console-border: #2c2c38;
-  --console-text: #e8e7f0;
-  --console-text-muted: #8e8da3;
-  --console-accent: #e3a548;
-  --console-accent-dim: #8a6a2e;
+  --console-bg: #17110f;
+  --console-panel: #201815;
+  --console-border: #362924;
+  --console-text: #f1e9e4;
+  --console-text-muted: #a3958d;
+  --console-accent: #e2664a;
+  --console-accent-strong: #d1452f;
+  --console-accent-dim: #7a3327;
   --console-warn: #e2574c;
   --console-ok: #4caf7d;
-  --radius-panel: 6px;
-  --radius-control: 3px;
+  --radius-panel: 10px;
+  --radius-control: 8px;
+  --radius-pill: 999px;
 }
 
 @theme inline {
@@ -29,6 +31,7 @@
   --color-console-text: var(--console-text);
   --color-console-text-muted: var(--console-text-muted);
   --color-console-accent: var(--console-accent);
+  --color-console-accent-strong: var(--console-accent-strong);
   --color-console-accent-dim: var(--console-accent-dim);
   --color-console-warn: var(--console-warn);
   --color-console-ok: var(--console-ok);

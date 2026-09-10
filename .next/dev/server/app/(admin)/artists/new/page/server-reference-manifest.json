@@ -1,0 +1,49 @@
+{
+  "node": {
+    "402c12142a5a760598ec7aab5e11fb0910053e6317": {
+      "workers": {
+        "app/(admin)/artists/new/page": {
+          "moduleId": "[project]/.next-internal/server/app/(admin)/artists/new/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/app/(admin)/artists/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "createArtistInline",
+      "filename": "src/app/(admin)/artists/actions.ts"
+    },
+    "406084a770008dbbb92743b7fc2d636293efa68f31": {
+      "workers": {
+        "app/(admin)/artists/new/page": {
+          "moduleId": "[project]/.next-internal/server/app/(admin)/artists/new/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/app/(admin)/artists/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "createArtist",
+      "filename": "src/app/(admin)/artists/actions.ts"
+    },
+    "40d4b8ecc36e12019cc355a0843464daa1f56238e9": {
+      "workers": {
+        "app/(admin)/artists/new/page": {
+          "moduleId": "[project]/.next-internal/server/app/(admin)/artists/new/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/app/(admin)/artists/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "deleteArtists",
+      "filename": "src/app/(admin)/artists/actions.ts"
+    },
+    "6077414cd07c1a7aa2e910616c067211c1f3130dcd": {
+      "workers": {
+        "app/(admin)/artists/new/page": {
+          "moduleId": "[project]/.next-internal/server/app/(admin)/artists/new/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/app/(admin)/artists/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "updateArtist",
+      "filename": "src/app/(admin)/artists/actions.ts"
+    }
+  },
+  "edge": {}
+}
