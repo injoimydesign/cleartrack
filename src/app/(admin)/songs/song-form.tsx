@@ -2,6 +2,7 @@
 
 import { useState, useTransition } from "react";
 import { toast } from "sonner";
+import { Loader2 } from "lucide-react";
 import { CoverArt } from "@/components/shared/cover-art";
 import { SearchableSelect, type SearchableOption } from "@/components/admin/searchable-select";
 import { RowPicker, SplitTotalBadge, type PickerRow } from "@/components/admin/row-picker";
@@ -15,15 +16,6 @@ import type { SelectOption } from "@/components/admin/multi-select-dropdown";
 
 const fieldClasses =
   "w-full rounded-[var(--radius-control)] border border-console-border bg-console-bg px-3 py-2 text-sm text-console-text placeholder:text-console-text-muted focus:border-console-accent";
-
-function LoaderIcon() {
-  return (
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" className="animate-spin" aria-hidden>
-      <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="3" strokeOpacity="0.25" />
-      <path d="M22 12a10 10 0 0 0-10-10" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
-    </svg>
-  );
-}
 
 export function SongForm({
   defaultValues,
@@ -159,9 +151,9 @@ export function SongForm({
                 type="button"
                 disabled={!title.trim() || isFetchingPublisher}
                 onClick={handleFetchPublisher}
-                className="mt-2 inline-flex items-center gap-1.5 rounded-[var(--radius-pill)] border border-console-accent px-3 py-1.5 text-sm font-medium text-console-accent hover:bg-console-accent/10 disabled:cursor-not-allowed disabled:opacity-50"
+                className="mt-2 inline-flex items-center gap-1.5 rounded-[var(--radius-pill)] border border-console-accent px-3 py-1.5 text-sm font-medium text-console-accent hover:bg-console-action/10 disabled:cursor-not-allowed disabled:opacity-50"
               >
-                {isFetchingPublisher && <LoaderIcon />}
+                {isFetchingPublisher && <Loader2 size={14} className="animate-spin" aria-hidden />}
                 {isFetchingPublisher ? "Searching Spotify…" : "Fetch from Spotify"}
               </button>
               <input type="hidden" name="publisher_id" value={publisherId ?? ""} />
@@ -187,9 +179,9 @@ export function SongForm({
                     type="button"
                     disabled={!title.trim() || isFetchingCover}
                     onClick={handleFetchCoverArt}
-                    className="inline-flex w-fit items-center gap-1.5 rounded-[var(--radius-pill)] border border-console-accent px-3 py-1.5 text-sm font-medium text-console-accent hover:bg-console-accent/10 disabled:cursor-not-allowed disabled:opacity-50"
+                    className="inline-flex w-fit items-center gap-1.5 rounded-[var(--radius-pill)] border border-console-accent px-3 py-1.5 text-sm font-medium text-console-accent hover:bg-console-action/10 disabled:cursor-not-allowed disabled:opacity-50"
                   >
-                    {isFetchingCover && <LoaderIcon />}
+                    {isFetchingCover && <Loader2 size={14} className="animate-spin" aria-hidden />}
                     {isFetchingCover ? "Searching Spotify…" : "Fetch from Spotify"}
                   </button>
                 </div>
@@ -307,7 +299,7 @@ export function SongForm({
 
         <button
           type="submit"
-          className="rounded-[var(--radius-pill)] bg-console-accent px-5 py-2 text-sm font-medium text-console-bg hover:bg-console-accent-strong"
+          className="rounded-[var(--radius-pill)] bg-console-action px-5 py-2 text-sm font-medium text-console-text hover:brightness-125"
         >
           {submitLabel}
         </button>

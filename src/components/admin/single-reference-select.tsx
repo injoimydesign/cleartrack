@@ -1,37 +1,10 @@
 "use client";
 
 import { useState, useTransition } from "react";
+import { ChevronDown, Check } from "lucide-react";
 import { Select as SelectPrimitive } from "radix-ui";
 
 const NONE_VALUE = "__none__";
-
-function ChevronIcon() {
-  return (
-    <svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden>
-      <path
-        d="M1 1L5 5L9 1"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
-function CheckIcon() {
-  return (
-    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden>
-      <path
-        d="M20 6 9 17l-5-5"
-        stroke="currentColor"
-        strokeWidth="2.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
 
 export function SingleReferenceSelect({
   options,
@@ -73,7 +46,7 @@ export function SingleReferenceSelect({
         <SelectPrimitive.Trigger className="flex w-full items-center justify-between rounded-[var(--radius-control)] border border-console-border bg-console-bg px-3 py-2 text-sm text-console-text focus:border-console-accent focus:outline-none data-[placeholder]:text-console-text-muted">
           <SelectPrimitive.Value />
           <SelectPrimitive.Icon className="text-console-text-muted">
-            <ChevronIcon />
+            <ChevronDown size={10} aria-hidden />
           </SelectPrimitive.Icon>
         </SelectPrimitive.Trigger>
         <SelectPrimitive.Portal>
@@ -81,22 +54,22 @@ export function SingleReferenceSelect({
             <SelectPrimitive.Viewport className="max-h-64 p-1">
               <SelectPrimitive.Item
                 value={NONE_VALUE}
-                className="flex cursor-pointer items-center justify-between rounded-[var(--radius-control)] px-3 py-2 text-sm text-console-text outline-none data-[highlighted]:bg-console-accent data-[highlighted]:text-console-bg"
+                className="flex cursor-pointer items-center justify-between rounded-[var(--radius-control)] px-3 py-2 text-sm text-console-text outline-none data-[highlighted]:bg-console-action data-[highlighted]:text-console-text"
               >
                 <SelectPrimitive.ItemText>{noneLabel}</SelectPrimitive.ItemText>
                 <SelectPrimitive.ItemIndicator>
-                  <CheckIcon />
+                  <Check size={12} aria-hidden />
                 </SelectPrimitive.ItemIndicator>
               </SelectPrimitive.Item>
               {allOptions.map((option) => (
                 <SelectPrimitive.Item
                   key={option.id}
                   value={option.id}
-                  className="flex cursor-pointer items-center justify-between truncate rounded-[var(--radius-control)] px-3 py-2 text-sm text-console-text outline-none data-[highlighted]:bg-console-accent data-[highlighted]:text-console-bg"
+                  className="flex cursor-pointer items-center justify-between truncate rounded-[var(--radius-control)] px-3 py-2 text-sm text-console-text outline-none data-[highlighted]:bg-console-action data-[highlighted]:text-console-text"
                 >
                   <SelectPrimitive.ItemText>{option.name}</SelectPrimitive.ItemText>
                   <SelectPrimitive.ItemIndicator>
-                    <CheckIcon />
+                    <Check size={12} aria-hidden />
                   </SelectPrimitive.ItemIndicator>
                 </SelectPrimitive.Item>
               ))}
@@ -126,7 +99,7 @@ export function SingleReferenceSelect({
             type="button"
             onClick={handleAdd}
             disabled={isPending}
-            className="rounded-[var(--radius-pill)] bg-console-accent px-3 py-1 text-xs font-medium text-console-bg hover:bg-console-accent-strong disabled:opacity-50"
+            className="rounded-[var(--radius-pill)] bg-console-action px-3 py-1 text-xs font-medium text-console-text hover:brightness-125 disabled:opacity-50"
           >
             {isPending ? "Adding…" : "Add & use"}
           </button>

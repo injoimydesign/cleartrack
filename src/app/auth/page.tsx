@@ -1,3 +1,4 @@
+import { BrandMark } from "@/components/shared/brand-mark";
 import Link from "next/link";
 import { signIn, signUp } from "@/app/auth/actions";
 
@@ -20,7 +21,9 @@ export default async function AuthPage({
   return (
     <div className="flex min-h-screen items-center justify-center bg-console-bg px-4">
       <div className="w-full max-w-sm rounded-[var(--radius-panel)] border border-console-border bg-console-panel p-6">
-        <p className="mb-1 font-mono text-sm text-console-accent">CLEARTRACK</p>
+        <div className="mb-4">
+          <BrandMark />
+        </div>
         <h1 className="mb-6 text-lg font-semibold text-console-text">
           {mode === "sign-up" ? "Create an account" : "Sign in"}
         </h1>
@@ -78,7 +81,7 @@ export default async function AuthPage({
             </div>
             <button
               type="submit"
-              className="w-full rounded-[var(--radius-pill)] bg-console-accent px-4 py-2 text-sm font-medium text-console-bg hover:bg-console-accent-strong"
+              className="w-full rounded-[var(--radius-pill)] bg-console-action px-4 py-2 text-sm font-medium text-console-text hover:brightness-125"
             >
               Create account
             </button>
@@ -114,7 +117,7 @@ export default async function AuthPage({
             </div>
             <button
               type="submit"
-              className="w-full rounded-[var(--radius-pill)] bg-console-accent px-4 py-2 text-sm font-medium text-console-bg hover:bg-console-accent-strong"
+              className="w-full rounded-[var(--radius-pill)] bg-console-action px-4 py-2 text-sm font-medium text-console-text hover:brightness-125"
             >
               Sign in
             </button>

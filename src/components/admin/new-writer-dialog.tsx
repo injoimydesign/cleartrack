@@ -141,7 +141,7 @@ export function NewWriterDialog({
               type="button"
               onClick={handleSave}
               disabled={!name.trim() || isPending}
-              className="rounded-[var(--radius-pill)] bg-console-accent px-4 py-2 text-sm font-medium text-console-bg hover:bg-console-accent-strong disabled:cursor-not-allowed disabled:opacity-50"
+              className="rounded-[var(--radius-pill)] bg-console-action px-4 py-2 text-sm font-medium text-console-text hover:brightness-125 disabled:cursor-not-allowed disabled:opacity-50"
             >
               {isPending ? "Saving…" : "Save writer"}
             </button>

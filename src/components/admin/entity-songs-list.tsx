@@ -26,7 +26,7 @@ export function EntitySongsList({ songs }: { songs: EntitySongRow[] }) {
             {song.title}
           </span>
           {song.splitPercent !== undefined && (
-            <span className="shrink-0 font-mono text-xs text-console-text-muted">
+            <span className="shrink-0 text-sm font-bold text-console-accent">
               {song.splitPercent}%
             </span>
           )}

@@ -74,7 +74,7 @@ export default async function ProfilePage() {
         </div>
         <button
           type="submit"
-          className="rounded-[var(--radius-pill)] bg-console-accent px-5 py-2 text-sm font-medium text-console-bg hover:bg-console-accent-strong"
+          className="rounded-[var(--radius-pill)] bg-console-action px-5 py-2 text-sm font-medium text-console-text hover:brightness-125"
         >
           Save changes
         </button>

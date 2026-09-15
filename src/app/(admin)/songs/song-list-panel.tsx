@@ -73,7 +73,7 @@ export function SongListPanel({
   return (
     <div>
       {selected.size > 0 && (
-        <div className="mb-3 flex items-center justify-between rounded-[var(--radius-control)] border border-console-accent/40 bg-console-accent/10 px-3 py-2 text-sm">
+        <div className="mb-3 flex items-center justify-between rounded-[var(--radius-control)] border border-console-accent/40 bg-console-action/10 px-3 py-2 text-sm">
           <span>{selected.size} selected</span>
           <button
             type="button"

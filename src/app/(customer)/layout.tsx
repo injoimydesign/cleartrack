@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 import { signOut } from "@/app/auth/actions";
+import { BrandMark } from "@/components/shared/brand-mark";
 
 export default async function CustomerLayout({ children }: { children: React.ReactNode }) {
   const supabase = await createClient();
@@ -11,8 +12,8 @@ export default async function CustomerLayout({ children }: { children: React.Rea
   return (
     <div className="flex min-h-screen flex-col bg-console-bg text-console-text">
       <header className="flex items-center justify-between border-b border-console-border px-6 py-4">
-        <Link href="/browse" className="font-mono text-sm tracking-tight text-console-accent">
-          CLEARTRACK
+        <Link href="/browse">
+          <BrandMark />
         </Link>
         <div className="flex items-center gap-4 text-sm">
           {user ? (

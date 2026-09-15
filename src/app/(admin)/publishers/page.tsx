@@ -19,7 +19,7 @@ export default async function PublishersPage() {
         <h1 className="text-lg font-medium">Publishers</h1>
         <Link
           href="/publishers/new"
-          className="rounded-[var(--radius-pill)] bg-console-accent px-4 py-1.5 text-sm font-medium text-console-bg hover:bg-console-accent-strong"
+          className="rounded-[var(--radius-pill)] bg-console-action px-4 py-1.5 text-sm font-medium text-console-text hover:brightness-125"
         >
           Add publisher
         </Link>

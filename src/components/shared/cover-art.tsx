@@ -1,12 +1,4 @@
-function MusicIcon() {
-  return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
-      <path d="M9 18V5l12-2v13" strokeLinecap="round" strokeLinejoin="round" />
-      <circle cx="6" cy="18" r="3" />
-      <circle cx="18" cy="16" r="3" />
-    </svg>
-  );
-}
+import { Music } from "lucide-react";
 
 export function CoverArt({
   url,
@@ -27,7 +19,7 @@ export function CoverArt({
         <img src={url} alt={`${title} cover art`} className="h-full w-full object-cover" />
       ) : (
         <span className="text-console-text-muted">
-          <MusicIcon />
+          <Music size={20} strokeWidth={2} aria-hidden />
         </span>
       )}
     </div>

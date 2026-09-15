@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import { HeaderSearch } from "@/components/admin/header-search";
 import { createClient } from "@/lib/supabase/server";
 import { signOut } from "@/app/auth/actions";
+import { BrandMark } from "@/components/shared/brand-mark";
 
 const NAV = [
   { href: "/songs", label: "Songs" },
@@ -61,10 +62,8 @@ export default async function AdminLayout({ children }: { children: React.ReactN
     <div className="flex min-h-screen">
       <aside className="flex w-56 shrink-0 flex-col border-r border-console-border bg-console-panel px-4 py-6">
         <div className="mb-8 px-2">
-          <span className="font-mono text-sm tracking-tight text-console-accent">
-            CLEARTRACK
-          </span>
-          <p className="mt-0.5 text-xs text-console-text-muted">Catalog admin</p>
+          <BrandMark />
+          <p className="mt-1.5 text-xs text-console-text-muted">Catalog admin</p>
         </div>
         <nav className="flex flex-col gap-0.5">
           {NAV.map((item) => (

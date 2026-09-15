@@ -1,18 +1,18 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
+import { Figtree, Inter } from "next/font/google";
 import { Toaster } from "sonner";
 import "./globals.css";
 
-const plexSans = IBM_Plex_Sans({
-  variable: "--font-plex-sans",
+const figtree = Figtree({
+  variable: "--font-figtree",
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: ["400", "500", "600", "700", "800"],
 });
 
-const plexMono = IBM_Plex_Mono({
-  variable: "--font-plex-mono",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
-  weight: ["400", "500"],
+  weight: ["400", "600", "800"],
 });
 
 export const metadata: Metadata = {
@@ -24,7 +24,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${plexSans.variable} ${plexMono.variable} h-full antialiased`}
+      className={`${figtree.variable} ${inter.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-console-bg text-console-text font-sans">
         {children}

@@ -1,27 +1,89 @@
 @import "tailwindcss";
 
 /*
- * ClearTrack design tokens.
- * Near-black warm panel, hairline dividers instead of card shadows, and a
- * coral/red accent (swapped from an earlier amber pass per direct visual
- * reference) carried consistently across links, primary buttons, badges,
- * and custom form controls — the native checkbox/select never appear
- * unstyled anywhere in the app.
+ * ClearTrack design tokens — transcribed from the ClearTrack Design System
+ * (Figma-sourced token export). Warm near-black neutrals, cream ink, and
+ * three accents with distinct jobs: "cyan acts, orange identifies, amber
+ * warns." No red/error color exists in the source system — destructive
+ * actions stay neutral-outline rather than inventing an off-brand color.
  */
 :root {
-  --console-bg: #17110f;
-  --console-panel: #201815;
-  --console-border: #362924;
-  --console-text: #f1e9e4;
-  --console-text-muted: #a3958d;
-  --console-accent: #e2664a;
-  --console-accent-strong: #d1452f;
-  --console-accent-dim: #7a3327;
-  --console-warn: #e2574c;
-  --console-ok: #4caf7d;
-  --radius-panel: 10px;
-  --radius-control: 8px;
+  /* Warm near-black neutrals */
+  --ink-900: #090303; /* navigation bar */
+  --ink-850: #100606; /* page canvas */
+  --ink-800: #141111; /* card + table surface */
+  --ink-750: #171717; /* incidental fills */
+  --ink-700: #252524; /* raised surface, table header, callout */
+  --ink-650: #262626; /* neutral status pill */
+  --ink-600: #2a2a2a; /* hairline border */
+  --ink-550: #383838; /* hover border */
+
+  /* Warm light neutrals */
+  --cream-100: #fff8ed; /* primary ink */
+  --cream-200: #e1dbd1; /* muted pill ink */
+  --white: #ffffff;
+  --gray-100: #f5f5f5;
+  --gray-500: #a0a0a0; /* secondary ink, icon default */
+
+  /* Accents */
+  --cyan-500: #09a4ce; /* links, split values, section eyebrows */
+  --cyan-900: #003e53; /* filled action background */
+  --orange-500: #f0642f; /* brand mark, active navigation */
+  --amber-400: #f2b95f; /* attention: notes, next step, warnings */
+  --green-400: #6dd49b; /* cleared / success */
+  --green-900: #173326; /* cleared pill background */
+
+  /* Semantic aliases */
+  --surface-page: var(--ink-850);
+  --surface-nav: var(--ink-900);
+  --surface-card: var(--ink-800);
+  --surface-raised: var(--ink-700);
+  --surface-action: var(--cyan-900);
+  --surface-input: var(--ink-800);
+
+  --border-default: var(--ink-600);
+  --border-subtle: var(--ink-700);
+  --border-hover: var(--ink-550);
+  --border-accent: var(--amber-400);
+
+  --text-primary: var(--cream-100);
+  --text-secondary: var(--gray-500);
+  --text-heading: var(--gray-100);
+  --text-bright: var(--white);
+  --text-link: var(--cyan-500);
+  --text-value: var(--cyan-500);
+  --text-attention: var(--amber-400);
+  --text-muted-pill: var(--cream-200);
+  --text-on-action: var(--cream-100);
+
+  --status-cleared-bg: var(--green-900);
+  --status-cleared-fg: var(--green-400);
+  --status-idle-bg: var(--ink-650);
+  --status-idle-fg: var(--cream-200);
+  --status-pending-bg: rgba(242, 185, 95, 0.14);
+  --status-pending-fg: var(--amber-400);
+
+  /* Back-compat names used throughout the app's existing components —
+     mapped onto the new system's semantic roles rather than left as raw
+     hex, so every component picks up the new palette automatically. */
+  --console-bg: var(--surface-page);
+  --console-panel: var(--surface-card);
+  --console-border: var(--border-default);
+  --console-text: var(--text-primary);
+  --console-text-muted: var(--text-secondary);
+  --console-accent: var(--text-link); /* cyan — links, focus, outline emphasis */
+  --console-action: var(--surface-action); /* cyan-900 — filled buttons, selected fills */
+  --console-brand: var(--orange-500); /* wordmark / identity only */
+  --console-warn: var(--text-attention); /* amber — warnings, no red in this system */
+  --console-ok: var(--status-cleared-fg); /* green — success/cleared */
+
+  --radius-panel: 14px; /* radius-md */
+  --radius-control: 10px; /* radius-sm */
+  --radius-lg: 20px; /* hero panels */
   --radius-pill: 999px;
+
+  --shadow-card: 0px 10px 28px 0px rgba(0, 0, 0, 0.2078);
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
 }
 
 @theme inline {
@@ -31,16 +93,16 @@
   --color-console-text: var(--console-text);
   --color-console-text-muted: var(--console-text-muted);
   --color-console-accent: var(--console-accent);
-  --color-console-accent-strong: var(--console-accent-strong);
-  --color-console-accent-dim: var(--console-accent-dim);
+  --color-console-action: var(--console-action);
+  --color-console-brand: var(--console-brand);
   --color-console-warn: var(--console-warn);
   --color-console-ok: var(--console-ok);
-  --font-sans: var(--font-plex-sans);
-  --font-mono: var(--font-plex-mono);
+  --font-sans: var(--font-figtree);
+  --font-ui: var(--font-inter);
 }
 
 /* Visible keyboard focus everywhere (PRD §10 accessibility requirement) —
-   never remove this without replacing it with an equally visible state. */
+   cyan, since focus is an interactive/action signal in this system. */
 :focus-visible {
   outline: 2px solid var(--console-accent);
   outline-offset: 2px;

@@ -145,7 +145,7 @@ export default async function CustomerSongPage({
                   <div key={w.id} className="px-4 py-2.5">
                     <div className="flex items-center justify-between text-sm">
                       <span className="text-console-text">{w.name}</span>
-                      <span className="font-mono text-xs text-console-text-muted">
+                      <span className="text-sm font-bold text-console-accent">
                         {sw.split_percent}%
                       </span>
                     </div>
@@ -170,7 +170,7 @@ export default async function CustomerSongPage({
               .map((sl) => (
                 <div key={sl.labels!.id} className="flex items-center justify-between px-4 py-2.5 text-sm">
                   <span className="text-console-text">{sl.labels!.name}</span>
-                  <span className="font-mono text-xs text-console-text-muted">
+                  <span className="text-sm font-bold text-console-accent">
                     {sl.split_percent}%
                   </span>
                 </div>

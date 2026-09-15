@@ -1,23 +1,10 @@
 "use client";
 
 import { useMemo, useState, useTransition } from "react";
+import { ChevronDown } from "lucide-react";
 import { Popover as PopoverPrimitive } from "radix-ui";
 
 export type SearchableOption = { id: string; name: string };
-
-function ChevronIcon() {
-  return (
-    <svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden>
-      <path
-        d="M1 1L5 5L9 1"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
 
 /**
  * Single-select searchable dropdown for a row-based picker (one writer,
@@ -118,7 +105,7 @@ export function SearchableSelect({
             {selectedOption ? selectedOption.name : placeholder}
           </span>
           <span className="shrink-0 text-console-text-muted">
-            <ChevronIcon />
+            <ChevronDown size={10} aria-hidden />
           </span>
         </button>
       </PopoverPrimitive.Trigger>
@@ -145,7 +132,7 @@ export function SearchableSelect({
                 <button
                   type="button"
                   onClick={() => select(option)}
-                  className="block w-full truncate px-3 py-2 text-left text-sm text-console-text hover:bg-console-accent hover:text-console-bg"
+                  className="block w-full truncate px-3 py-2 text-left text-sm text-console-text hover:bg-console-action hover:text-console-text"
                   title={option.name}
                 >
                   {option.name}

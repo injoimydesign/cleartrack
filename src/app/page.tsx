@@ -3,6 +3,7 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { getPublicRecentSongs } from "@/lib/public-songs";
+import { BrandMark } from "@/components/shared/brand-mark";
 
 export const dynamic = "force-dynamic";
 
@@ -52,9 +53,7 @@ export default async function LandingPage() {
   return (
     <div className="min-h-screen bg-console-bg text-console-text">
       <header className="flex items-center justify-between px-6 py-5">
-        <span className="font-mono text-sm tracking-tight text-console-accent">
-          CLEARTRACK
-        </span>
+        <BrandMark />
         <nav className="flex items-center gap-3 text-sm">
           <Link
             href="/auth?mode=sign-in"
@@ -64,7 +63,7 @@ export default async function LandingPage() {
           </Link>
           <Link
             href="/auth?mode=sign-up"
-            className="rounded-[var(--radius-pill)] bg-console-accent px-4 py-1.5 font-medium text-console-bg hover:bg-console-accent-strong"
+            className="rounded-[var(--radius-pill)] bg-console-action px-4 py-1.5 font-medium text-console-text hover:brightness-125"
           >
             Create account
           </Link>
@@ -82,7 +81,7 @@ export default async function LandingPage() {
         <div className="mt-8 flex items-center justify-center gap-3">
           <Link
             href="/auth?mode=sign-up"
-            className="rounded-[var(--radius-pill)] bg-console-accent px-5 py-2 text-sm font-medium text-console-bg hover:bg-console-accent-strong"
+            className="rounded-[var(--radius-pill)] bg-console-action px-5 py-2 text-sm font-medium text-console-text hover:brightness-125"
           >
             Create account
           </Link>

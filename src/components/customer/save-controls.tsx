@@ -143,7 +143,7 @@ export function SaveControls({ songId, signedIn }: { songId: string; signedIn: b
               type="button"
               onClick={handleCreateAndAdd}
               disabled={!newFolderName.trim() || isPending}
-              className="rounded-[var(--radius-pill)] bg-console-accent px-2.5 py-1 text-xs font-medium text-console-bg hover:bg-console-accent-strong disabled:opacity-50"
+              className="rounded-[var(--radius-pill)] bg-console-action px-2.5 py-1 text-xs font-medium text-console-text hover:brightness-125 disabled:opacity-50"
             >
               Add
             </button>

@@ -1,40 +1,10 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { Search, ChevronDown } from "lucide-react";
 import { Popover as PopoverPrimitive } from "radix-ui";
 
 export type SelectOption = { id: string; name: string };
-
-function SearchIcon() {
-  return (
-    <svg
-      width="14"
-      height="14"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      aria-hidden
-    >
-      <circle cx="11" cy="11" r="7" />
-      <path d="m21 21-4.3-4.3" />
-    </svg>
-  );
-}
-
-function ChevronIcon() {
-  return (
-    <svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden>
-      <path
-        d="M1 1L5 5L9 1"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
 
 /**
  * Trigger + searchable popover multi-select, styled to match the PRO
@@ -97,7 +67,7 @@ export function MultiSelectDropdown({
             {selectedNames.length ? selectedNames.join(", ") : placeholder}
           </span>
           <span className="text-console-text-muted">
-            <ChevronIcon />
+            <ChevronDown size={10} aria-hidden />
           </span>
         </button>
       </PopoverPrimitive.Trigger>
@@ -110,7 +80,7 @@ export function MultiSelectDropdown({
         >
           <div className="flex items-center gap-2 border-b border-console-border px-3 py-2">
             <span className="text-console-text-muted">
-              <SearchIcon />
+              <Search size={14} aria-hidden />
             </span>
             <input
               autoFocus
@@ -131,7 +101,7 @@ export function MultiSelectDropdown({
                     onClick={() => toggle(option.id)}
                     className={`w-full px-3 py-2 text-left text-sm ${
                       isSelected
-                        ? "bg-console-accent font-medium text-console-bg"
+                        ? "bg-console-action font-medium text-console-text"
                         : "text-console-text hover:bg-console-border/60"
                     }`}
                   >

@@ -54,7 +54,7 @@ export function FoldersClient({ initialFolders }: { initialFolders: FolderRow[] 
           type="button"
           onClick={handleCreate}
           disabled={!newName.trim() || isPending}
-          className="rounded-[var(--radius-pill)] bg-console-accent px-4 py-2 text-sm font-medium text-console-bg hover:bg-console-accent-strong disabled:opacity-50"
+          className="rounded-[var(--radius-pill)] bg-console-action px-4 py-2 text-sm font-medium text-console-text hover:brightness-125 disabled:opacity-50"
         >
           Create folder
         </button>

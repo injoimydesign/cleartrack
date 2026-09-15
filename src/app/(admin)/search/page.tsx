@@ -21,7 +21,7 @@ function ResultSection({
   return (
     <section>
       <h2 className="mb-2 text-sm font-medium text-console-text-muted">
-        {title} <span className="font-mono">({count})</span>
+        {title} <span className="text-console-text-muted">({count})</span>
       </h2>
       <div className="rounded-[var(--radius-panel)] border border-console-border divide-y divide-console-border">
         {children}

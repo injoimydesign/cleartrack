@@ -47,7 +47,7 @@ export default async function SongsPage() {
         <h1 className="text-lg font-medium">Songs</h1>
         <Link
           href="/songs/new"
-          className="rounded-[var(--radius-pill)] bg-console-accent px-4 py-1.5 text-sm font-medium text-console-bg hover:bg-console-accent-strong"
+          className="rounded-[var(--radius-pill)] bg-console-action px-4 py-1.5 text-sm font-medium text-console-text hover:brightness-125"
         >
           Add song
         </Link>

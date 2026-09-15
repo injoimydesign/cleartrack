@@ -1,32 +1,9 @@
 "use client";
 
+import { Trash2, Plus, TriangleAlert } from "lucide-react";
 import { SearchableSelect, type SearchableOption } from "@/components/admin/searchable-select";
 
 export type PickerRow = { id: string | null; splitPercent: string };
-
-function TrashIcon() {
-  return (
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
-      <path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m3 0-1 14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2L4 6" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
-
-function PlusIcon() {
-  return (
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
-      <path d="M12 5v14M5 12h14" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
-
-function WarningIcon() {
-  return (
-    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
-      <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0ZM12 9v4M12 17h.01" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
 
 export function SplitTotalBadge({ rows }: { rows: PickerRow[] }) {
   const total = rows.reduce((sum, r) => sum + (parseFloat(r.splitPercent) || 0), 0);
@@ -45,7 +22,7 @@ export function SplitTotalBadge({ rows }: { rows: PickerRow[] }) {
       </span>
       {!ok && (
         <span className="flex items-center gap-1 text-xs text-console-warn">
-          <WarningIcon /> doesn&apos;t add up to 100% — you can still save
+          <TriangleAlert size={12} aria-hidden /> doesn&apos;t add up to 100% — you can still save
         </span>
       )}
     </div>
@@ -128,7 +105,7 @@ export function RowPicker({
               aria-label="Remove"
               className="rounded-[var(--radius-control)] p-2 text-console-text-muted hover:bg-console-warn/10 hover:text-console-warn"
             >
-              <TrashIcon />
+              <Trash2 size={14} aria-hidden />
             </button>
           </div>
         );
@@ -147,7 +124,7 @@ export function RowPicker({
         onClick={addRow}
         className="inline-flex w-fit items-center gap-1.5 rounded-[var(--radius-control)] border border-console-border px-3 py-1.5 text-sm text-console-text hover:border-console-accent hover:text-console-accent"
       >
-        <PlusIcon /> {addLabel}
+        <Plus size={14} aria-hidden /> {addLabel}
       </button>
     </div>
   );

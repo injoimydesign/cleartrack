@@ -67,7 +67,7 @@ export function UsersListClient({
             disabled={isPending}
             className={`rounded-[var(--radius-pill)] px-2.5 py-0.5 text-xs font-medium disabled:opacity-50 ${
               u.role === "admin"
-                ? "bg-console-accent text-console-bg"
+                ? "bg-console-action text-console-text"
                 : "border border-console-border text-console-text-muted hover:border-console-accent hover:text-console-accent"
             }`}
           >
