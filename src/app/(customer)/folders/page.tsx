@@ -25,7 +25,7 @@ export default async function FoldersPage() {
   }));
 
   return (
-    <div>
+    <div className="mx-auto max-w-5xl">
       <h1 className="mb-6 text-lg font-medium">Folders</h1>
       <FoldersClient initialFolders={folders} />
     </div>

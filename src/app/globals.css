@@ -67,6 +67,7 @@
      mapped onto the new system's semantic roles rather than left as raw
      hex, so every component picks up the new palette automatically. */
   --console-bg: var(--surface-page);
+  --console-nav: var(--surface-nav);
   --console-panel: var(--surface-card);
   --console-border: var(--border-default);
   --console-text: var(--text-primary);
@@ -88,6 +89,7 @@
 
 @theme inline {
   --color-console-bg: var(--console-bg);
+  --color-console-nav: var(--console-nav);
   --color-console-panel: var(--console-panel);
   --color-console-border: var(--console-border);
   --color-console-text: var(--console-text);

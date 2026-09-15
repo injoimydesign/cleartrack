@@ -1,18 +1,32 @@
+
 import Link from "next/link";
 import { Suspense } from "react";
 import { HeaderSearch } from "@/components/admin/header-search";
 import { createClient } from "@/lib/supabase/server";
 import { signOut } from "@/app/auth/actions";
 import { BrandMark } from "@/components/shared/brand-mark";
+import {
+  Disc3,
+  Library,
+  Building2,
+  Users,
+  BadgeCheck,
+  Tag,
+  Search,
+  Compass,
+  LogIn,
+  LogOut,
+  UserCog,
+} from "lucide-react";
 
 const NAV = [
-  { href: "/songs", label: "Songs" },
-  { href: "/writers", label: "Writers" },
-  { href: "/labels", label: "Labels" },
-  { href: "/publishers", label: "Publishers" },
-  { href: "/pros", label: "PROs" },
-  { href: "/artists", label: "Artists" },
-  { href: "/users", label: "Users" },
+  { href: "/songs", label: "Songs", icon: Disc3 },
+  { href: "/writers", label: "Writers", icon: Users },
+  { href: "/labels", label: "Labels", icon: Tag },
+  { href: "/publishers", label: "Publishers", icon: Building2 },
+  { href: "/pros", label: "PROs", icon: BadgeCheck },
+  { href: "/artists", label: "Artists", icon: Library },
+  { href: "/users", label: "Users", icon: UserCog },
 ];
 
 export default async function AdminLayout({ children }: { children: React.ReactNode }) {
@@ -66,15 +80,17 @@ export default async function AdminLayout({ children }: { children: React.ReactN
           <p className="mt-1.5 text-xs text-console-text-muted">Catalog admin</p>
         </div>
         <nav className="flex flex-col gap-0.5">
-          {NAV.map((item) => (
+          {NAV.map(({ href, label, icon: Icon }) => {
+            return (
             <Link
-              key={item.href}
-              href={item.href}
-              className="rounded-[var(--radius-control)] px-2 py-1.5 text-sm text-console-text hover:bg-console-border/60"
+              key={href}
+              href={href}
+              className={`inline-flex items-center gap-1.5 rounded-[var(--radius-control)] px-2 py-1.5 text-sm text-console-text hover:bg-console-border/60`}
             >
-              {item.label}
-            </Link>
-          ))}
+              <Icon size={14} aria-hidden />
+              {label}
+            </Link>);
+})}
         </nav>
         <div className="mt-auto space-y-2 px-2 pt-4">
           <Link

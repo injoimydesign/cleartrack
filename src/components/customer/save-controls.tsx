@@ -4,6 +4,7 @@ import { useState, useTransition } from "react";
 import Link from "next/link";
 import { toast } from "sonner";
 import { Popover as PopoverPrimitive } from "radix-ui";
+import { FolderPlus, BookmarkCheck } from "lucide-react";
 import { Checkbox } from "@/components/admin/checkbox";
 import {
   createFolderAndAdd,
@@ -17,7 +18,16 @@ import {
  * folder picker — select existing folders or create one on the spot,
  * both of which persist immediately (no separate save step).
  */
-export function SaveControls({ songId, signedIn }: { songId: string; signedIn: boolean }) {
+export function SaveControls({
+  songId,
+  signedIn,
+  variant = "pill",
+}: {
+  songId: string;
+  signedIn: boolean;
+  /** "pill" — compact, used on song cards. "button" — full action-row button, used on the song detail page. */
+  variant?: "pill" | "button";
+}) {
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const [folders, setFolders] = useState<{ id: string; name: string }[]>([]);
@@ -26,7 +36,15 @@ export function SaveControls({ songId, signedIn }: { songId: string; signedIn: b
   const [isPending, startTransition] = useTransition();
 
   if (!signedIn) {
-    return (
+    return variant === "button" ? (
+      <Link
+        href="/auth"
+        className="inline-flex h-[42px] items-center gap-2 rounded-[var(--radius-control)] px-4 text-sm text-console-text shadow-[inset_0_0_0_1px_var(--border-default)] hover:border-console-accent"
+      >
+        <FolderPlus size={15} aria-hidden />
+        Sign in to View
+      </Link>
+    ) : (
       <Link
         href="/auth"
         className="inline-block rounded-[var(--radius-pill)] border border-console-border px-3 py-1 text-xs text-console-text-muted hover:border-console-accent hover:text-console-accent"
@@ -91,16 +109,26 @@ export function SaveControls({ songId, signedIn }: { songId: string; signedIn: b
   return (
     <PopoverPrimitive.Root open={open} onOpenChange={handleOpenChange}>
       <PopoverPrimitive.Trigger asChild>
-        <button
-          type="button"
-          className={`inline-block rounded-[var(--radius-pill)] border px-3 py-1 text-xs ${
-            savedCount > 0
-              ? "border-console-accent text-console-accent"
-              : "border-console-border text-console-text-muted hover:border-console-accent hover:text-console-accent"
-          }`}
-        >
-          {savedCount > 0 ? `Saved (${savedCount})` : "Save"}
-        </button>
+        {variant === "button" ? (
+          <button
+            type="button"
+            className="inline-flex h-[42px] items-center gap-2 rounded-[var(--radius-control)] bg-console-action px-4 text-sm text-console-text shadow-[inset_0_0_0_1px_var(--border-default)] hover:brightness-125"
+          >
+            {savedCount > 0 ? <BookmarkCheck size={15} aria-hidden /> : <FolderPlus size={15} aria-hidden />}
+            {savedCount > 0 ? "Saved to Folder" : "Save to Folder"}
+          </button>
+        ) : (
+          <button
+            type="button"
+            className={`inline-block rounded-[var(--radius-pill)] border px-3 py-1 text-xs ${
+              savedCount > 0
+                ? "border-console-accent text-console-accent"
+                : "border-console-border text-console-text-muted hover:border-console-accent hover:text-console-accent"
+            }`}
+          >
+            {savedCount > 0 ? `Saved (${savedCount})` : "Save"}
+          </button>
+        )}
       </PopoverPrimitive.Trigger>
 
       <PopoverPrimitive.Portal>

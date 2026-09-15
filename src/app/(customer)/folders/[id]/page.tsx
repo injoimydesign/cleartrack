@@ -52,7 +52,7 @@ export default async function FolderDetailPage({
   const renameWithId = renameFolder.bind(null, folder.id);
 
   return (
-    <div>
+    <div className="mx-auto max-w-5xl">
       <Link
         href="/folders"
         className="mb-4 inline-block text-sm text-console-text-muted hover:text-console-accent"

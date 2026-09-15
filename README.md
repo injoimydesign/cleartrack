@@ -30,6 +30,14 @@ technical context. This README covers local setup only.
    ```
 5. `npm run dev` → http://localhost:3000/songs
 
+## Customer song page, nav, and typeahead search
+
+Rebuilt `/music/[id]` to match a reference screenshot (hero record card, side-by-side Writers/Labels split tables, Project Notes card), rebuilt the customer nav to match (icon nav links with an active-state pill, admin-only "Admin" link, sign out), and added a real debounced typeahead search in the header (songs matched by title, artist, or writer name). "Download Report" builds a genuine plain-text rights summary client-side — no report backend exists, so this isn't a formatted PDF, but it's real, not decorative. No schema changes. One known gap: the reference shows album/year/duration under the song title; the schema has none of those fields, so that line is omitted rather than faked.
+
+## Design system restyle
+
+Full visual restyle to the ClearTrack Design System (Figma-sourced tokens/components the user provided) — palette, fonts (Figtree + Inter), radius scale, and icons (real lucide-react, not hand-drawn SVGs). No functional changes; every route/action/interaction from Phase 9 works identically. See `ClearTrack-ARCHITECTURE.md` §18 for the full breakdown, especially the cyan/orange/amber accent-role split.
+
 ## Phase 9 status
 
 Saved songs & folders (PRD §9), admin user management at `/users` (PRD §7), and a self-service `/profile` page. "Saving" a song means adding it to a folder — there's no separate saved_songs table. `/users` is the second and last legitimate use of the service-role client in the app, needed specifically for Supabase's Auth Admin API (listing/deleting users), always gated behind a session-client admin check first.

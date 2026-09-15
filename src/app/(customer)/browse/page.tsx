@@ -76,7 +76,7 @@ export default async function BrowsePage({
   const rest = (tableData ?? []).map(toCard);
 
   return (
-    <div>
+    <div className="mx-auto max-w-5xl">
       <h1 className="mb-6 text-lg font-medium">Browse</h1>
 
       {recent.length > 0 && (

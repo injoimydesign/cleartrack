@@ -51,7 +51,7 @@ export default async function SavedPage() {
   }
 
   return (
-    <div>
+    <div className="mx-auto max-w-5xl">
       <h1 className="mb-6 text-lg font-medium">Saved</h1>
       <SongCardGrid
         songs={songs}
