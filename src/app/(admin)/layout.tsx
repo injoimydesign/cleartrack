@@ -1,23 +1,10 @@
-
 import Link from "next/link";
 import { Suspense } from "react";
 import { HeaderSearch } from "@/components/admin/header-search";
 import { createClient } from "@/lib/supabase/server";
 import { signOut } from "@/app/auth/actions";
 import { BrandMark } from "@/components/shared/brand-mark";
-import {
-  Disc3,
-  Library,
-  Building2,
-  Users,
-  BadgeCheck,
-  Tag,
-  Search,
-  Compass,
-  LogIn,
-  LogOut,
-  UserCog,
-} from "lucide-react";
+import { Disc3, Library, Building2, Users, BadgeCheck, Tag, LogOut, UserCog } from "lucide-react";
 
 const NAV = [
   { href: "/songs", label: "Songs", icon: Disc3 },
@@ -80,17 +67,16 @@ export default async function AdminLayout({ children }: { children: React.ReactN
           <p className="mt-1.5 text-xs text-console-text-muted">Catalog admin</p>
         </div>
         <nav className="flex flex-col gap-0.5">
-          {NAV.map(({ href, label, icon: Icon }) => {
-            return (
+          {NAV.map(({ href, label, icon: Icon }) => (
             <Link
               key={href}
               href={href}
-              className={`inline-flex items-center gap-1.5 rounded-[var(--radius-control)] px-2 py-1.5 text-sm text-console-text hover:bg-console-border/60`}
+              className="inline-flex items-center gap-1.5 rounded-[var(--radius-control)] px-2 py-1.5 text-sm text-console-text hover:bg-console-border/60"
             >
               <Icon size={14} aria-hidden />
               {label}
-            </Link>);
-})}
+            </Link>
+          ))}
         </nav>
         <div className="mt-auto space-y-2 px-2 pt-4">
           <Link
@@ -105,8 +91,9 @@ export default async function AdminLayout({ children }: { children: React.ReactN
           <form action={signOut}>
             <button
               type="submit"
-              className="text-xs text-console-text-muted hover:text-console-accent"
+              className="inline-flex items-center gap-1.5 text-xs text-console-text-muted hover:text-console-accent"
             >
+              <LogOut size={13} aria-hidden />
               Sign out
             </button>
           </form>
